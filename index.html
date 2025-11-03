@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Talent International - Global Recruitment Agency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #8B4513;
+            --secondary: #D4AF37;
+            --accent: #A52A2A;
+            --light: #F5F5DC;
+            --dark: #333333;
+        }
+        
+        body {
+            background-color: #f9f7f2;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary);
+        }
+        
+        .company-name {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            line-height: 1.3;
+        }
+        
+        header p {
+            font-size: 1rem;
+            max-width: 100%;
+            margin: 0 auto 1.5rem;
+            font-weight: 300;
+            padding: 0 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background: #e6c34d;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section {
+            background: white;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--secondary);
+        }
+        
+        .section-title {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--light);
+            font-size: 1.5rem;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .service-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            transition: transform 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-card h3 i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .countries-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .country-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s;
+        }
+        
+        .country-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .country-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .country-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .industry-card {
+            background: var(--light);
+            padding: 1.2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s;
+        }
+        
+        .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .industry-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+        
+        .industry-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .industry-card p {
+            font-size: 0.85rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+        }
+        
+        .file-upload {
+            border: 2px dashed #ddd;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #f9f9f9;
+        }
+        
+        .file-upload:hover {
+            border-color: var(--primary);
+            background-color: var(--light);
+        }
+        
+        .file-upload i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+        
+        .file-name {
+            margin-top: 10px;
+            font-style: italic;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .social-icons {
+            margin: 1.5rem 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.3rem;
+            margin: 0 8px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary);
+        }
+        
+        .note {
+            background: #fff9e6;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .contact-info {
+            margin: 1.5rem 0;
+            line-height: 1.8;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .program-highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .program-highlight h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .program-highlight p {
+            font-size: 0.95rem;
+        }
+        
+        /* Tablet Styles */
+        @media (min-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            header {
+                padding: 2.5rem 0;
+            }
+            
+            .company-name {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.3rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .countries-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .industries-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        
+        /* Desktop Styles */
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .countries-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .industries-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Fix for very small screens */
+        @media (max-width: 360px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+            
+            .company-name {
+                font-size: 1.6rem;
+            }
+            
+            .industries-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-concierge-bell"></i>
+            </div>
+            <div class="company-name">Connect Talent International</div>
+            <p class="tagline">Your Global Recruitment Partner Across Industries and Borders</p>
+            <p>Connecting exceptional talent with outstanding opportunities worldwide</p>
+            <a href="#application" class="btn">Start Your Journey <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-globe"></i> Our Global Reach</h2>
+            <p>With partnerships across multiple continents, we connect talented professionals with opportunities in key global markets.</p>
+            
+            <div class="countries-grid">
+                <div class="country-card">
+                    <i class="fas fa-flag-usa"></i>
+                    <h4>United States</h4>
+                    <p><strong>Hospitality Only</strong></p>
+                    <p>Hotels, Resorts, Restaurants & Tourism</p>
+                    <p><strong>Featured:</strong> Hospitality Traineeship Programme 2026</p>
+                </div>
+                <div class="country-card">
+                    <i class="fas fa-globe-europe"></i>
+                    <h4>Europe</h4>
+                    <p>UK, Germany, Netherlands, Switzerland & more</p>
+                    <p>Healthcare, Engineering, IT & Hospitality opportunities</p>
+                </div>
+                <div class="country-card">
+                    <i class="fas fa-flag"></i>
+                    <h4>South Africa</h4>
+                    <p>Local opportunities across all major industries</p>
+                    <p>Connecting local talent with both domestic and international roles</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Industries We Serve</h2>
+            <p>We specialize in connecting talent with opportunities across diverse sectors, matching skills with market needs.</p>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <i class="fas fa-hotel"></i>
+                    <h4>Hospitality</h4>
+                    <p>Hotels, Restaurants, Tourism</p>
+                </div>
+                <div class="industry-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <h4>Healthcare</h4>
+                    <p>Nursing, Medical Staff</p>
+                </div>
+                <div class="industry-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Information Technology</h4>
+                    <p>Developers, IT Support</p>
+                </div>
+                <div class="industry-card">
+                    <i class="fas fa-hard-hat"></i>
+                    <h4>Construction</h4>
+                    <p>Skilled Trades, Engineering</p>
+                </div>
+                <div class="industry-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Education</h4>
+                    <p>Teaching, Administration</p>
+                </div>
+                <div class="industry-card">
+                    <i class="fas fa-truck"></i>
+                    <h4>Logistics</h4>
+                    <p>Supply Chain, Transport</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="program-highlight">
+            <h3>Featured Programme: USA Hospitality Traineeship 2026</h3>
+            <p>8-12 month cultural exchange programme for hospitality graduates with global hotel partners in the USA</p>
+            <a href="#application" class="btn" style="background: white; color: var(--dark); margin-top: 1rem;">Apply Now</a>
+        </div>
+        
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-handshake"></i> Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3><i class="fas fa-user-tie"></i> For Job Seekers</h3>
+                    <p>We match your skills and aspirations with international opportunities, handling visa processing, relocation support, and career guidance.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-building"></i> For Employers</h3>
+                    <p>We provide access to pre-screened, qualified global talent to meet your staffing needs across various industries and skill levels.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-passport"></i> Visa & Relocation</h3>
+                    <p>Comprehensive support with work permits, visa applications, and settling into your new country and workplace.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="application" class="section">
+            <h2 class="section-title"><i class="fas fa-edit"></i> Global Opportunities Application</h2>
+            <p>Tell us about your skills, preferences, and career goals. We'll match you with suitable opportunities across our global network.</p>
+            
+            <form id="applicationForm">
+                <div class="form-group">
+                    <label for="fullName"><i class="fas fa-user"></i> Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="country"><i class="fas fa-globe-americas"></i> Current Country *</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="industry"><i class="fas fa-industry"></i> Industry/Profession *</label>
+                    <select id="industry" name="industry" required>
+                        <option value="">Select your industry</option>
+                        <option value="hospitality">Hospitality</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="it">Information Technology</option>
+                        <option value="construction">Construction</option>
+                        <option value="education">Education</option>
+                        <option value="logistics">Logistics</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="position"><i class="fas fa-briefcase"></i> Desired Position</label>
+                    <input type="text" id="position" name="position" placeholder="e.g., Hotel Manager, Software Developer, Nurse">
+                </div>
+                
+                <div class="form-group">
+                    <label for="preferredCountries"><i class="fas fa-map-marked-alt"></i> Preferred Destination *</label>
+                    <select id="preferredCountries" name="preferredCountries" required>
+                        <option value="">Select preferred destination</option>
+                        <option value="usa">United States (Hospitality Only)</option>
+                        <option value="europe">Europe (Multiple Industries)</option>
+                        <option value="south-africa">South Africa (Multiple Industries)</option>
+                        <option value="any">Any of the above</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience"><i class="fas fa-chart-line"></i> Years of Experience *</label>
+                    <select id="experience" name="experience" required>
+                        <option value="">Select experience level</option>
+                        <option value="0-1">0-1 years</option>
+                        <option value="1-3">1-3 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="5+">5+ years</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="education"><i class="fas fa-graduation-cap"></i> Highest Education</label>
+                    <select id="education" name="education">
+                        <option value="">Select education level</option>
+                        <option value="high-school">High School</option>
+                        <option value="diploma">Diploma/Certificate</option>
+                        <option value="bachelors">Bachelor's Degree</option>
+                        <option value="masters">Master's Degree</option>
+                        <option value="phd">PhD</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cv"><i class="fas fa-file-upload"></i> Upload Your CV/Resume *</label>
+                    <div class="file-upload" id="cvUpload">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Click to upload your CV/Resume</p>
+                        <div class="file-name" id="fileName">No file selected</div>
+                        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" style="display: none;" required>
+                    </div>
+                    <small>Accepted formats: PDF, DOC, DOCX (Max size: 5MB)</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comment"></i> Additional Information</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your career goals, specific skills, and what you're looking for in an international opportunity..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Submit Application</button>
+            </form>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-concierge-bell"></i>
+                </div>
+                <div class="company-name">Connect Talent International</div>
+                <p class="tagline">Your Global Recruitment Partner</p>
+                
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> Email: admin@connecttalentrecruitment.com</p>
+                    <p><i class="fas fa-phone"></i> Phone: +27 71 498 5709</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Address: 37 Cradock Avenue, Rosebank, JHB</p>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <p>&copy; 2023 Connect Talent International. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // File upload interaction
+        document.getElementById('cvUpload').addEventListener('click', function() {
+            document.getElementById('cv').click();
+        });
+        
+        document.getElementById('cv').addEventListener('change', function() {
+            const fileName = this.files[0] ? this.files[0].name : 'No file selected';
+            document.getElementById('fileName').textContent = fileName;
+        });
+        
+        // Form submission handling
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic validation
+            const requiredFields = this.querySelectorAll('[required]');
+            let valid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    valid = false;
+                    field.style.borderColor = 'red';
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (valid) {
+                // In a real implementation, this would send the form data to a server
+                // For this demo, we'll just show an alert
+                alert('Thank you for your application to Connect Talent International! We have received your information and will contact you with suitable global opportunities.');
+                this.reset();
+                document.getElementById('fileName').textContent = 'No file selected';
+            } else {
+                alert('Please fill in all required fields marked with *.');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
